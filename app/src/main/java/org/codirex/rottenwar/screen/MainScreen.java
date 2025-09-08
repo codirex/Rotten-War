@@ -11,14 +11,11 @@ import org.codirex.rottenwar.MyGame;
 public class MainScreen implements Screen {
     private MyGame game;
 	private Texture background;
-	private Music music;
 
     public MainScreen(MyGame game) {
         this.game = game;
 		background = new Texture("background.jpg");
-		music = Gdx.audio.newMusic(Gdx.files.internal("sounds/background.m4a"));
-		music.setLooping(true);
-		music.setVolume(0.8f);
+		
     }
 
     @Override

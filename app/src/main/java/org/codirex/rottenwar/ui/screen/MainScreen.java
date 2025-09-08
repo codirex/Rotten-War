@@ -12,6 +12,7 @@ public class MainScreen implements ApplicationListener {
     SpriteBatch spriteBatch;
     FitViewport viewport;
 	
+	
     @Override
     public void create() {
 		spriteBatch = new SpriteBatch();

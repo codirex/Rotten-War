@@ -15,16 +15,20 @@ public class MyGame extends Game {
     public SpriteBatch batch;
     public BitmapFont font;
     public FitViewport viewport;
+	private Music music;
 
     @Override
     public void create() {
-        preference = Gdx.app.getPreferences("settings");
+        music = Gdx.audio.newMusic(Gdx.files.internal("sounds/background.m4a"));
+music.setLooping(true);
+		music.setVolume(0.8f);
+
         batch = new SpriteBatch();
         font = new BitmapFont();
         viewport = new FitViewport(48, 24);
         font.setUseIntegerPositions(false);
         font.getData().setScale(viewport.getWorldHeight() / Gdx.graphics.getHeight());
-
+	
         this.setScreen(new MainScreen(this));
     }
 
@@ -39,27 +43,5 @@ public class MyGame extends Game {
         batch.dispose();
         font.dispose();
     }
-
-    public void enableSounds(boolean flag) {
-		preference.putBoolean("sounds", flag);
-	}
 	
-	public boolean isSoundsEnabled() {
-	    return preference.getBoolean("sounds");
-	}
-	
-	public void enableMusic(boolean flag) {
-		preference.putBoolean("music", flag);
-	}
-	
-	public boolean isMusicEnabled() {
-	    return preference.getBoolean("music");
-	}
-	
-	
-	
-	
-	
-	
-
 }
